@@ -1,0 +1,1 @@
+Esta carpeta contiene datos locales del portal. La base SQLite y las imágenes adjuntas se crean automáticamente al ejecutar el servidor. No publiques ni compartas estos archivos: pueden contener información de clientes. Los datos locales están excluidos del repositorio mediante .gitignore. En producción necesitás almacenamiento persistente y copias de seguridad protegidas.

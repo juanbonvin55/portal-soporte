@@ -1,0 +1,15 @@
+# Secretos y configuración local
+.env
+.env.*
+!.env.example
+
+# Datos de clientes: base de datos, adjuntos y copias locales
+/data/*.sqlite
+/data/*.sqlite-*
+/data/uploads/
+/data/backups/
+
+# Dependencias y archivos del sistema
+node_modules/
+.DS_Store
+Thumbs.db

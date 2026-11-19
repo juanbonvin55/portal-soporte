@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d35">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administración | Centro de soporte</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body class="admin-body">
+  <main class="admin-page">
+    <section class="login-screen" id="login-screen">
+      <a class="brand login-brand" href="/">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.2 20 7.6v8.8l-8 4.4-8-4.4V7.6l8-4.4Z" stroke="currentColor" stroke-width="1.7"/><path d="M8.4 12.1 10.7 14.4 15.9 9.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-copy"><strong>Centro de soporte</strong><small>ADMINISTRACIÓN</small></span>
+      </a>
+      <div class="login-card">
+        <div class="login-symbol"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <span class="section-kicker">ÁREA RESTRINGIDA</span>
+        <h1>Panel de soporte</h1>
+        <p>Ingresá tu contraseña de administración para acceder a los requerimientos.</p>
+        <form id="login-form">
+          <label for="admin-password">Contraseña</label>
+          <input id="admin-password" name="password" type="password" placeholder="Ingresá tu contraseña" autocomplete="current-password" required>
+          <div class="login-error" id="login-error" role="alert"></div>
+          <button class="submit-button login-submit" type="submit"><span>Ingresar al panel</span><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+        <a href="/" class="login-back">Volver al portal de clientes</a>
+      </div>
+      <p class="login-foot">Acceso exclusivo para personal autorizado.</p>
+    </section>
+
+    <section class="dashboard-screen" id="dashboard-screen" hidden>
+      <header class="admin-header">
+        <div class="admin-header-left">
+          <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.2 20 7.6v8.8l-8 4.4-8-4.4V7.6l8-4.4Z" stroke="currentColor" stroke-width="1.7"/><path d="M8.4 12.1 10.7 14.4 15.9 9.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brand-copy"><strong>Centro de soporte</strong><small>ADMINISTRACIÓN</small></span></a>
+          <span class="admin-divider"></span><span class="admin-section-name">Bandeja de tickets</span>
+        </div>
+        <div class="admin-header-actions"><span class="admin-session"><span class="secure-dot"></span> Sesión administrativa</span><a class="portal-link" href="/" target="_blank" rel="noopener">Ver portal</a><button class="logout-button" id="logout-button" type="button">Cerrar sesión</button></div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="dashboard-title-row"><div><span class="section-kicker">CENTRO DE OPERACIONES</span><h1>Requerimientos</h1><p>Administrá y hacé seguimiento de las solicitudes recibidas.</p></div><button class="refresh-button" id="refresh-button" type="button"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7v5h-5M4 17v-5h5m10-1a7 7 0 0 0-12.4-3L4 12m16 0-2.6 4a7 7 0 0 1-12.4-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Actualizar</button></div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span class="stat-label">TOTAL DE TICKETS</span><div class="stat-bottom"><strong id="stat-total">0</strong><span class="stat-icon stat-icon-all"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v14H5zM8 9h8M8 13h8M8 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+          <div class="stat-card"><span class="stat-label">NUEVOS</span><div class="stat-bottom"><strong id="stat-new">0</strong><span class="stat-icon stat-icon-new"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v8m-4-4h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></div></div>
+          <div class="stat-card"><span class="stat-label">EN PROCESO</span><div class="stat-bottom"><strong id="stat-progress">0</strong><span class="stat-icon stat-icon-progress"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 1 0 9 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 7v5l3 2m3-11h3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+          <div class="stat-card"><span class="stat-label">RESUELTOS</span><div class="stat-bottom"><strong id="stat-resolved">0</strong><span class="stat-icon stat-icon-resolved"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+        </div>
+
+        <section class="ticket-workspace">
+          <div class="ticket-list-panel">
+            <div class="list-header"><div><h2>Bandeja de entrada</h2><span id="ticket-count">0 solicitudes</span></div><button id="export-button" class="export-button" type="button"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m-4-4 4 4 4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Exportar</button></div>
+            <div class="filter-row"><div class="search-box"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input id="search-input" type="search" placeholder="Buscar ticket, cliente o empresa…" autocomplete="off"></div><select id="status-filter" aria-label="Filtrar por estado"><option value="all">Todos los estados</option><option value="new">Nuevos</option><option value="in_progress">En proceso</option><option value="waiting">En espera</option><option value="resolved">Resueltos</option></select><select id="category-filter" aria-label="Filtrar por tipo"><option value="all">Todos los tipos</option><option value="technical">Soporte técnico</option><option value="incident">Incidente</option><option value="request">Solicitud</option><option value="billing">Administrativo</option><option value="other">Otro</option></select></div>
+            <div class="ticket-list" id="ticket-list"><div class="list-loading">Cargando requerimientos…</div></div>
+            <div class="list-limit-note" id="list-limit-note" hidden>Se muestran hasta 300 resultados. Aplicá filtros para acotar la búsqueda.</div>
+          </div>
+
+          <div class="ticket-detail-panel" id="ticket-detail-panel">
+            <div class="detail-empty"><div class="empty-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v14H5zM8 9h8M8 13h8M8 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Seleccioná un ticket</h3><p>Elegí un requerimiento de la bandeja para consultar sus datos y gestionar su estado.</p></div>
+          </div>
+        </section>
+        <div class="dashboard-footer"><span>Centro de soporte · Panel administrativo</span><span>Los datos se almacenan en la base local del servidor.</span></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
